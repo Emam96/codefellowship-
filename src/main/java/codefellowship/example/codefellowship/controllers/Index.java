@@ -7,10 +7,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.servlet.view.RedirectView;
 
-import java.util.ArrayList;
-import java.util.List;
+
+import java.security.Principal;
+
+import java.util.Optional;
 
 @Controller
 public class Index {
@@ -27,16 +28,16 @@ public class Index {
 
 
     @GetMapping("/")
-    public  String addAlbum(Model model){
-        ApplicationUser data = repo.findByUsername("emam");
-        model.addAttribute("users", data);
+    public  String addAlbum(Model model, Principal principal){
+
+        model.addAttribute("username", principal.getName());
         return "index";
     }
 
 
 
     @GetMapping("/profile/{username}")
-    public String getProfile(Model model, @PathVariable String username ){
+    public String getProfile(Model model, @PathVariable String username){
     ApplicationUser data =  repo.findByUsername(username);
     model.addAttribute("user", data);
         return "profile";

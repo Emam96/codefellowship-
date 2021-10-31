@@ -12,7 +12,7 @@ public class ApplicationUser implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long id;
+    public int id;
     @Column(unique = true)
     private String username;
     private String firstName;
@@ -69,11 +69,11 @@ public class ApplicationUser implements UserDetails {
     }
 
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
