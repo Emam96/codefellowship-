@@ -24,6 +24,7 @@
             </div>
             <div class="button-group" sec:authorize="isFullyAuthenticated()">
                 <span>Welcome <span sec:authentication="name"></span></span>
+
                  <a href="/profile">Profile</a>
                   <a href="/perform_logout">Logout</a>
             </div>

@@ -62,18 +62,24 @@ public class Index {
     @GetMapping("/index")
     public  String showPosts(Model model){
         List<Post> data = (ArrayList<Post>) postRepo.findAll();
+        List<ApplicationUser> allUsers = (List<ApplicationUser>) repo.findAll();
         model.addAttribute("posts", data);
+        model.addAttribute("users", allUsers);
         return "index";
     }
 
 
 
-//    @GetMapping("/profile")
-//    public String getUserPosts(Model model, @PathVariable String username){
-//        ApplicationUser data =  repo.findByUsername(username);
-//        model.addAttribute("posts", data.getPosts());
-//        return "profile";
-//    }
+
+    @GetMapping("/users/{id}")
+    public String getUserPage(Principal principal,Model model, @PathVariable int id){
+            ApplicationUser user = repo.findUserById(id);
+            model.addAttribute("userForOwner", user);
+            return "users";
+
+    }
+
+
 
 
     }

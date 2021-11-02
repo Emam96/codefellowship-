@@ -41,7 +41,7 @@ public class Auth {
         repo.save(newUser);
         Authentication authentication = new UsernamePasswordAuthenticationToken(newUser,null,new ArrayList<>());
         SecurityContextHolder.getContext().setAuthentication(authentication);
-        return new RedirectView("/");
+        return new RedirectView("/index");
     }
 
     @GetMapping("/login")

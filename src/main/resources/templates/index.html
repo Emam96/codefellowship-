@@ -31,6 +31,20 @@
 </div>
 
 
+<div id="mainstuff">
+
+    <div id="users">
+        <h3>USERS</h3>
+        <hr>
+        <div th:each="user : ${users}">
+            <img src="https://i.pinimg.com/originals/0c/3b/3a/0c3b3adb1a7530892e55ef36d3be6cb8.png" width="70px">
+            <p th:text="${user.username}"></p>
+            <a th:href="${'/users/'+user.id}"> profile</a>
+            <hr>
+        </div >
+    </div>
+
+
 <form id="form" sec:authorize="isAuthenticated()" action="/post"   method="POST">
     <label for="body">What do you want to share with us today?   </label><br>
     <textarea id="body" name="body" form="form" placeholder="Share your thoughts"></textarea>
@@ -38,7 +52,7 @@
 </form>
 
 
-
+</div>
 
 
 <div>

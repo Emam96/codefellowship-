@@ -6,5 +6,7 @@ import org.springframework.data.repository.CrudRepository;
 public interface ApplicationUserRepo extends CrudRepository<ApplicationUser,Integer> {
 
     ApplicationUser findByUsername(String username);
+    ApplicationUser findUserById(int id);
+//    ApplicationUser getOne(long followUser);
 
 }
