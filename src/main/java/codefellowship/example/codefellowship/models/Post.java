@@ -20,8 +20,9 @@ public class Post {
     public Post(){}
 
 
-    public Post(String body,  ApplicationUser appUser) {
+    public Post(String body, String timestamp,  ApplicationUser appUser) {
         this.body = body;
+        this.timestamp = timestamp;
         this.appUser = appUser;
     }
 

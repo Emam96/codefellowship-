@@ -9,16 +9,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
-
-
 import java.security.Principal;
-
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
+
 
 @Controller
 public class Index {
@@ -40,49 +37,44 @@ public class Index {
 
 
 
-    @GetMapping("/profile/{username}")
-    public String getProfile(Model model, @PathVariable String username){
-    ApplicationUser data =  repo.findByUsername(username);
+    @GetMapping("/profile")
+    public String getProfile(Model model,  Principal principal){
+    ApplicationUser data =  repo.findByUsername(principal.getName());
     model.addAttribute("user", data);
         return "profile";
 }
 
 
-    @GetMapping("/profile")
-    public String getUserPosts(Model model, @PathVariable String username){
-        ApplicationUser data =  repo.findByUsername(username);
-        model.addAttribute("posts", data.getPosts());
-        return "profile";
+
+    @PostMapping("/post")
+    public RedirectView addPost(Principal principal, String body) {
+        DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+        Date timeStamp = new Date();
+
+        ApplicationUser theUser = repo.findByUsername(principal.getName());
+        Post post = new Post(body, dateFormat.format(timeStamp), theUser);
+        postRepo.save(post);
+        return new RedirectView("/index");
     }
 
 
 
     @GetMapping("/index")
-    public  String addAlbum(Model model){
+    public  String showPosts(Model model){
         List<Post> data = (ArrayList<Post>) postRepo.findAll();
         model.addAttribute("posts", data);
         return "index";
     }
 
-//    @PostMapping("/post")
-//    public RedirectView greetingSubmit(@ModelAttribute Post post, Model model) {
-//        model.addAttribute("post", post);
-////        model.addAttribute("time", Instant.now().toString());
-//        postRepo.save(post);
-//        return new RedirectView("/index");
+
+
+//    @GetMapping("/profile")
+//    public String getUserPosts(Model model, @PathVariable String username){
+//        ApplicationUser data =  repo.findByUsername(username);
+//        model.addAttribute("posts", data.getPosts());
+//        return "profile";
 //    }
 
-
-    @PostMapping("/post")
-    public RedirectView addPostToDB(Model model , @RequestParam String body, Principal principal) {
-
-        ApplicationUser user =  repo.findByUsername(principal.getName());
-        model.addAttribute("user", user);
-        Post post = new Post(body,user);
-        postRepo.save(post);
-        return new RedirectView("/index");
-
-    }
 
     }
 

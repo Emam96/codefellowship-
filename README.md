@@ -18,7 +18,7 @@ $ ./gradlew bootRun
     * spring.jpa.hibernate.ddl-auto=create
 
 # Routes:
-- ("/"): to get home page
+- ("/index"): to get home page
 - ("/login"): to login
 - ("/signup"): to signup
 - ("/profile"): to see your profile and posts.

@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+body {
+font-family: sans-serif;
+
+}
+
+h1 {
+font-family: 'Righteous', cursive;
+margin-left: 1rem;
+margin-top: 1rem;
+font-size: 2pc;
+font-weight: bolder;
+color: white
+}
+
+nav {
+font-family: sans-serif;
+display: flex;
+flex-direction: row;
+background-color: tomato;
+height: 5rem;
+justify-content: space-between;
+position: relative;
+color: white;
+}
+
+
+.se {
+
+right: 0.5rem;
+margin-top: 1rem;
+}
+
+.button-group {
+position: absolute;
+
+right: 1.5rem;
+top: 1.7rem;
+}
+
+.button-group span {
+color: rgb(35, 108, 245);
+margin-right: 0.5rem;
+}
+
+a {
+margin-right: 1rem;
+text-decoration: none;
+color: white;
+transition: 0.2s;
+}
+
+
+a:hover {
+
+text-decoration: none;
+color: #00000050;
+}
+
+
+
+
+#cover {
+text-align: center;
+height: 15rem;
+background-image: url(https://blisskitchen.ca/wp-content/uploads/2018/01/cropped-Website-Header.png);
+background-size: cover;
+background-position-y: center;
+padding-top: 3rem;
+}
+
+#one {
+font-size: 4pc;
+color: white;
+text-shadow: -5px 2px 0px #A2F9D8;
+font-family: 'Righteous', cursive;
+
+}
+
+#two{
+font-size: 2pc;
+color: #00000099;
+
+}
+
+
+form {
+width: fit-content;
+margin: 7rem auto;
+display: flex;
+flex-direction: column;
+}
+
+#post {
+width: 25%;
+height: 2rem;
+margin: 1rem auto;
+background-color: tomato;
+border-style: none;
+color: white;
+transition: 0.2s;
+
+}
+
+
+#post:hover {
+transform: scale(105%);
+
+}
+
+textarea {
+height: 7rem;
+border-color: #00000050;
+
+}
+
+textarea:focus {
+box-shadow: 0px 2px 5px #00000050;
+
+}
+
+
+
+.one-post {
+width: 75%;
+margin: 2rem auto;
+border-radius: 5px;
+box-shadow: 0px 5px 7px #00000050;
+padding: 3rem;
+height: 5rem;
+}
+
+
+
+
+
+
+
+
+

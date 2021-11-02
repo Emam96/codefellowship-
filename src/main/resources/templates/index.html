@@ -4,32 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-<!--    <link rel="stylesheet" href="/css/reset.css" />-->
-<!--    <link rel="stylesheet" href="/css/style.css" />-->
+
+    <link rel="stylesheet" href="/styles/reset.css" />
+    <link rel="stylesheet" href="/styles/style.css" />
+
+<!--    <link rel="stylesheet" href="/static/styles/reset.css" />-->
+<!--    <link rel="stylesheet" href="/static/styles/style.css" />-->
+    <script
+            src="https://kit.fontawesome.com/eac52206dc.js"
+            crossorigin="anonymous"
+    ></script>
+
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <title>CodeFellowShip</title>
 </head>
 <body>
+
 <div th:insert="fragments/nav :: nav"></div>
 
 
+<div id="cover">
+    <span id="one">Share your experiences and learn from others!</span><br>
 
-<form sec:authorize="isAuthenticated()" action="/post"   method="POST">
-    <label for="body">Title:  <input type="text" name="body" id="body"> </label><br>
-    <input type="submit" value="post">
+    <span id="two">This website is for all developers to brainstorm and share anything related to programming, our goal is to create an environment where knowledge is available for everyone</span>
+</div>
+
+
+<form id="form" sec:authorize="isAuthenticated()" action="/post"   method="POST">
+    <label for="body">What do you want to share with us today?   </label><br>
+    <textarea id="body" name="body" form="form" placeholder="Share your thoughts"></textarea>
+    <input id="post" type="submit" value="post">
 </form>
 
 
 
 
 
-<div class="albums">
-    <div  th:each="post : ${posts}">
-        <p><span sec:authentication="name"></span>: <span th:text=${post.body}></span></p>
-<!--         <span th:text=${post.timestamp}></span>-->
+<div>
+    <div  class="one-post" th:each="post : ${posts}">
+<!--        <p><span th:text=${post.appUser.getUsername()}></span></p>:<br>-->
+            <span th:text=${post.body}></span></p>
+         <span th:text=${post.timestamp}></span>
 
-        <hr>
     </div>
 </div>
 

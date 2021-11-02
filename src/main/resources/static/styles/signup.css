@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+body {
+text-align: center;
+font-family: sans-serif;
+}
+
+h1 {
+font-family: 'Righteous', cursive;
+margin-left: 1rem;
+margin-top: 5rem;
+font-size: 5pc;
+font-weight: bolder;
+
+}
+
+
+form {
+width: fit-content;
+margin: 7rem auto;
+display: flex;
+flex-direction: column;
+}
+
+form input,label {
+height: 1rem;
+margin-top: 0.5rem;
+}
+
+#signup {
+width: 35%;
+height: 2rem;
+margin: 1rem auto;
+background-color: tomato;
+border-style: none;
+color: white;
+transition: 0.2s;
+
+}
+
+
+#signup:hover {
+transform: scale(110%);
+
+}
