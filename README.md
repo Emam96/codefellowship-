@@ -3,8 +3,9 @@
 ## This is a full stack web app,it allows users to add post,follow users and see their posts.
 
 # Run the App:
-1. change the `application.properties` file and add you database info.
-$ ./gradlew bootRun
+1. Create a new database with `CREATE DATABASE` command, in order to use it for the app.
+2. change the `application.properties` file and add you database info.
+3.  $ ./gradlew bootRun  on your terminal.
 
 ## Localhost
 * localhost:8080
