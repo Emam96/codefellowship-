@@ -20,6 +20,11 @@
 
 
 <div id="pro">
+<!--    if ()-->
+    <form th:if="${!me.getFriends().contains(userForOwner)}" action="/follow" method="post">
+        <input type="hidden" name="id" id="id" th:value="${userForOwner.id}">
+        <input class="button" type="submit" value="Follow !" />
+    </form>
 
     <img src="https://i.pinimg.com/originals/0c/3b/3a/0c3b3adb1a7530892e55ef36d3be6cb8.png">
     <div id="stuff">

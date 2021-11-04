@@ -23,3 +23,4 @@
 - ("/login"): to login
 - ("/signup"): to signup
 - ("/profile"): to see your profile and posts.
+- ("/feed"): to see your followed friends posts.

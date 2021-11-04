@@ -28,19 +28,8 @@ public class ApplicationUser implements UserDetails {
 
 
     @ManyToMany
-    @JoinTable(
-            name="posters_and_followers",
-            joinColumns = { @JoinColumn(name="follower") },
-            inverseJoinColumns = { @JoinColumn(name = "poster")}
-    )
-    Set<ApplicationUser> usersIFollow;
+    Set<ApplicationUser> friends;
 
-    @ManyToMany(mappedBy = "usersIFollow")
-    Set<ApplicationUser> usersFollowingMe;
-
-    public void followUser(ApplicationUser followedUser){
-        usersIFollow.add(followedUser);
-    }
 
 
     public ApplicationUser(){}
@@ -143,20 +132,8 @@ public class ApplicationUser implements UserDetails {
     }
 
 
-    public Set<ApplicationUser> getUsersIFollow() {
-        return usersIFollow;
-    }
+    public Set<ApplicationUser> getFriends() { return friends; }
 
-    public void setUsersIFollow(Set<ApplicationUser> usersIFollow) {
-        this.usersIFollow = usersIFollow;
-    }
-
-    public Set<ApplicationUser> getUsersFollowingMe() {
-        return usersFollowingMe;
-    }
-
-    public void setUsersFollowingMe(Set<ApplicationUser> usersFollowingMe) {
-        this.usersFollowingMe = usersFollowingMe;
-    }
+    public void setFriends(Set<ApplicationUser> friends) { this.friends = friends; }
 
 }

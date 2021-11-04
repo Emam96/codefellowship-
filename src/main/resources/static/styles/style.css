@@ -115,6 +115,11 @@ width: 10rem;
 overflow: auto;
 }
 
+button {
+
+width: 50rem;
+
+}
 
 form {
 width: fit-content;
